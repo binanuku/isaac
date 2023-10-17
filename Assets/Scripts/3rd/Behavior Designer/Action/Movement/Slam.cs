@@ -31,8 +31,8 @@ namespace BehaviorDesigner.Runtime.Tasks.Custom
             {
                 float x = collision.GetContact(0).normal.x;
 
-                /* 当一次性接触到2个或以上的碰撞体时，会多次触发该方法，导致direction多次在原direction上更新。
-                 * 这里引入oldDirection，direction更新时不在原direction上改动，而是在oldDirection上。
+                /* 두 개 이상의 충돌체가 동시에 접촉되면 이 메서드가 여러 번 트리거되어 방향이 원래 방향으로 여러 번 업데이트됩니다.
+                 * 여기서는 OldDirection을 소개하는데, 방향이 업데이트되면 원래 방향으로 변경되지 않고 oldDirection으로 변경됩니다.
                  * oldDirection在碰撞结束后的下一帧再随direction跟新。这样即使多次调用也能得到同样的结果。
                  */
 

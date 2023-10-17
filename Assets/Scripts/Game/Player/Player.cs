@@ -6,7 +6,7 @@ using System;
 
 public class Player : MonoBehaviour, IAttackable
 {
-    //血量
+    //HP
     private int maxHealth;
     public int MaxHealth
     {
@@ -27,11 +27,11 @@ public class Player : MonoBehaviour, IAttackable
     }
     public enum HealthType { Normal, Soul }
 
-    //移速
+    //이동 속도
     public float Speed { get; set; }
     public float SpeedMultiple { get; set; }
 
-    //射程Range
+    //범위
     private float range;
     public float Range
     {
@@ -39,10 +39,10 @@ public class Player : MonoBehaviour, IAttackable
         set { range = value > 5f ? value : 5f; }
     }
 
-    //射速Tears
-    //用于计算射击延迟,一般道具的射速效果作用于此
+    //눈물
+    //사격 지연을 계산하는 데 사용되며 일반 소품의 발사 속도 효과가 여기에 작용
     public float Tears { get; set; }
-    //射击延迟,用于计算射击间隔,某些道具作用于Multiple（倍数）和Added（额外）
+    //발사 지연은 발사 간격을 계산하는데 사용되며 일부 소품은 다중 및 추가에 작동
     public int TearsDelay
     {
         get
@@ -68,15 +68,15 @@ public class Player : MonoBehaviour, IAttackable
     }
     public int TearsDelayMultiple { get; set; }
     public int TearsDelayAdded { get; set; }
-    //射击间隔,用于实际的发射计算
+    //실제 사격 계산에 사용되는 사격 간격
     private float ShotCD
     {
         get { return 1f / (30f / (TearsDelay + 1)); }
     }
-    //射击计时
+    //발사 타이밍
     private float shotTiming;
 
-    //弹速ShotSpeed
+    //발사 속도
     private float shotSpeed;
     public float ShotSpeed
     {
@@ -84,36 +84,36 @@ public class Player : MonoBehaviour, IAttackable
         set { shotSpeed = value > 0.6f ? value : 0.6f; }
     }
 
-    //击退
+    //넉백
     public float Knockback { get; set; }
 
-    //伤害  
+    //데미지  
     public float Damage
     {
-        //伤害 = 3.5 * 伤害倍数 * √(基础伤害 * 1.2f + 1f)+ 额外伤害
+        //피해 = 3.5 * 데미지 증가 * √(기본 데미지 * 1.2f + 1f)+ 추가 데미지
         get { return (float)Math.Round(3.5f * DamageMultiple * Mathf.Sqrt((DamageBase * 1.2f + 1f)) + DamageAdded, 2); }
     }
     public float DamageMultiple { get; set; }
     public float DamageBase { get; set; }
     public float DamageAdded { get; set; }
 
-    //幸运
+    //Luck
     public int Luck { get; set; }
 
-    //身上的道具
+    //획득한 아이템
     public ItemModel itemModle;
     public int CoinNum { get; set; }
     public int KeyNum { get; set; }
     public int BombNum { get; set; }
 
-    //状态
+    //상태
     [HideInInspector]
     public bool isLive;
     bool isControllable;
     bool isInvincible;
     Vector2 moveInput;
 
-    //能与子弹发生互动的对象类列表
+    //총알과 상호 작용할 수 있는 개체 클래스 목록
     [HideInInspector]
     public List<string> TagThatDefaultByBullet;
     [HideInInspector]
@@ -122,7 +122,7 @@ public class Player : MonoBehaviour, IAttackable
     public List<Type> TypeThatCanBeAttackedByBullet;
     [HideInInspector]
     public List<Type> TypeThatCanBeDestroyedByBullet;
-    //穿透能力
+    //관통능력
     [HideInInspector]
     public bool penetrating = false;
 
@@ -163,7 +163,7 @@ public class Player : MonoBehaviour, IAttackable
 
     void Update()
     {
-        //死亡及复活测试
+        //죽음과 부활 테스트
         if (Input.GetKey(KeyCode.O))
         {
             PlayerInitialize();
@@ -180,7 +180,7 @@ public class Player : MonoBehaviour, IAttackable
     }
 
     /// <summary>
-    /// 控制输入
+    /// 제어 입력
     /// </summary>
     void UpdateControl()
     {
@@ -211,14 +211,14 @@ public class Player : MonoBehaviour, IAttackable
     }
 
     /// <summary>
-    /// 移动
+    /// 이동
     /// </summary>
     void UpdateMovement()
     {
         var h = Input.GetAxis("Horizontal");
         var v = Input.GetAxis("Vertical");
         moveInput = h * Vector2.right + v * Vector2.up;
-        //归一化，取值0 - 1,斜着走的速度不会超过移动速度。
+        //정규화, 값 0 - 1, 대각선으로 걷는 속도는 이동 속도를 초과하지 않습니다.
         if (moveInput.magnitude > 1f)
         {
             moveInput.Normalize();
@@ -228,7 +228,7 @@ public class Player : MonoBehaviour, IAttackable
     }
 
     /// <summary>
-    /// 更新动画
+    /// 애니메이션 업데이트
     /// </summary>
     void UpdateAnimator()
     {
@@ -239,13 +239,13 @@ public class Player : MonoBehaviour, IAttackable
     }
 
     /// <summary>
-    /// 按下按键发射子弹
+    /// 버튼을 누르면 총알 발사
     /// </summary>
     void LaunchBullet(KeyCode key)
     {
-        int force = 120;//施加给子弹主方向的力
-        int mainCorrect;//子弹主方向修正值
-        int minorCorrect = 50;//子弹次方向修正值
+        int force = 120;//총알의 주요 방향에 가해지는 힘
+        int mainCorrect;//총알 주방향 보정 값
+        int minorCorrect = 50;//총알 2차 방향 보정 값
         GameObject bullet = bulletPool.Take();
         Rigidbody2D rigidbody = bullet.GetComponent<Rigidbody2D>();
         bullet.GetComponent<Bullet>().Initialization();
@@ -254,9 +254,8 @@ public class Player : MonoBehaviour, IAttackable
         if (key == KeyCode.UpArrow)
         {
             headAnimation.Play("Up");
-            //根据发射方向与人物当前移动方向赋予子弹初始一个力
-            //以下面的公式为例，赋予子弹的力量大小为：new vector2(次方向上的力，主方向上的力)
-            //写了注释感觉更晕了，自己体会吧
+            //발사 방향과 캐릭터의 현재 이동 방향을 기반으로 총알에 초기 힘을 부여
+            //다음 공식을 예로 들면, 총알에 가해지는 힘은 다음과 같습니다. new Vector2(2차 방향의 힘, 주 방향의 힘)
             mainCorrect = 15;
             rigidbody.AddForce(new Vector2(moveInput.x * minorCorrect, moveInput.y * mainCorrect + force) * ShotSpeed);
         }
@@ -269,7 +268,8 @@ public class Player : MonoBehaviour, IAttackable
         else if (key == KeyCode.LeftArrow)
         {
             headAnimation.Play("Left");
-            //修改mainCorrect使得发射方向与人物移动方向: 同方向时推力更大，反方向时阻力更小
+            //발사 방향이 캐릭터의 이동 방향과 동일하도록 mainCordirect를 수정합니다.
+            //같은 방향에서는 추력이 더 크고 반대 방향에서는 저항이 더 작습니다.
             mainCorrect = moveInput.x >= 0 ? 5 : 40;
             rigidbody.AddForce(new Vector2(moveInput.x * mainCorrect - force, moveInput.y * minorCorrect) * ShotSpeed);
         }
@@ -284,7 +284,7 @@ public class Player : MonoBehaviour, IAttackable
     }
 
     /// <summary>
-    /// 设置炸弹
+    /// 폭탄 설치
     /// </summary>
     void GenerateBomb()
     {
@@ -298,7 +298,7 @@ public class Player : MonoBehaviour, IAttackable
     }
 
     /// <summary>
-    /// 受到攻击
+    /// 피해
     /// </summary>
     /// <param name="damage"></param>
     public void BeAttacked(float damage, Vector2 direction, float forceMultiple = 1)
@@ -313,13 +313,13 @@ public class Player : MonoBehaviour, IAttackable
     }
 
     /// <summary>
-    /// 被击退效果
+    /// 넉백
     /// </summary>
     /// <param name="force"></param>
     /// <returns></returns>
     IEnumerator knockBackCoroutine(Vector2 force)
     {
-        //降低输入操作带来的移动量
+        //입력 작업으로 인한 이동량을 줄입니다.
         SpeedMultiple = 0.5f;
 
         float length = 0.3f;
@@ -327,25 +327,25 @@ public class Player : MonoBehaviour, IAttackable
         float timeleft = overTime;
         while (timeleft > 0)
         {
-            //overTime时间内移动direction * length的距离
+            //초과 시간 내 방향 이동 * 길이 거리
             transform.Translate(force * length * Time.deltaTime / overTime);
             timeleft -= Time.deltaTime;
             yield return null;
         }
 
-        //还原
+        //절감
         SpeedMultiple = 1;
     }
     /// <summary>
-    /// 进入无敌状态并闪烁
+    /// 무적 상태에 들어가 플래시
     /// </summary>
     IEnumerator Invincible()
     {
         isInvincible = true;
         Color red = new Color(1, 0.2f, 0.2f, 1);
 
-        float time = 0;//计时
-        float flashCD = 0;//闪烁计时
+        float time = 0;//타이밍
+        float flashCD = 0;//깜빡임 타이밍
 
         while (time < 1f)
         {
@@ -371,7 +371,7 @@ public class Player : MonoBehaviour, IAttackable
     }
 
     /// <summary>
-    /// 加血
+    /// 피를 더하다
     /// </summary>
     /// <param name="health"></param>
     /// <param name="type"></param>
@@ -394,14 +394,14 @@ public class Player : MonoBehaviour, IAttackable
         UI.hp.UpdateHP();
     }
     /// <summary>
-    /// 扣血
+    /// 혈액을 빼다
     /// </summary>
     /// <param name="damage"></param>
     public void ReduceHealth(int damage)
     {
         int tempHealth;
 
-        //若以后新增血量类型，只需再写多一层计算即可
+        //앞으로 새로운 혈액량 유형을 추가할 경우 계산 레이어를 하나만 더 작성하면 됩니다.
         tempHealth = SoulHealth;
         SoulHealth -= damage;
         damage = damage - tempHealth > 0 ? damage - tempHealth : 0;
@@ -412,7 +412,7 @@ public class Player : MonoBehaviour, IAttackable
     }
 
     /// <summary>
-    /// 状态初始化
+    /// 상태 초기화
     /// </summary>
     public void PlayerInitialize()
     {
@@ -449,16 +449,16 @@ public class Player : MonoBehaviour, IAttackable
         wholeAnimation.SetBool("isLive", true);
         myRigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
 
-        //初始化背包
+        //백팩 초기화
         itemModle = new ItemModel();
 
-        //接触后触发眼泪的自我消除，不触发其他方法的：岩石，铁块
+        //접촉 시 눈물의 자가 제거를 유발하지만 다른 방법은 유발 안함: 암석, 철 블록
         TypeThatDefaultByBullet = new List<Type>() { typeof(Rock), typeof(MetalBlock) };
-        //同上，因为没有类所以使用tag来判断：墙壁等
+        //위와 동일. 클래스가 없기 때문에 태그를 사용하여 벽 등을 판단
         TagThatDefaultByBullet = new List<string>() { "Wall", "MoveCollider" };
-        //接触后触发碰撞物的被击方法：怪物，火堆，屎堆
+        //접촉 후 충돌 물체를 유발하는 타격 방법: 몬스터, 불더미, 똥더미
         TypeThatCanBeAttackedByBullet = new List<Type>() { typeof(Monster), typeof(Poop), typeof(Fireplace) };
-        //接触后触发碰撞物的被毁方法：默认为空
+        //접촉 후 발생하는 충돌 객체의 파괴 방법: 기본적으로 비어 있음
         TypeThatCanBeDestroyedByBullet = new List<Type>() { };
 
         UI.PlayerUIInitialize();
@@ -487,12 +487,12 @@ public class Player : MonoBehaviour, IAttackable
     }
 
     /// <summary>
-    /// 判断碰撞体并移动到下一个房间
+    /// 충돌 대상을 판단하고 다음 방으로 이동
     /// </summary>
     /// <param name="collision"></param>
     void OnCollisionEnter2D(Collision2D collision)
     {
-        //移动到下一个房间
+        //다음 방으로 이동
         if (isControllable && collision.transform.CompareTag("MoveCollider"))
         {
             if (collision.transform.name == "Up")

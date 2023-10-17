@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour
     bool isDestory;
     float damage;
     float playerKnockback;
-    float fallingDistance = -0.06f;//每秒自然下落的距离
+    float fallingDistance = -0.06f;//초당 자연 낙하 거리
 
     Rigidbody2D myRigidbody;
     Collider2D myCollider;
@@ -16,7 +16,7 @@ public class Bullet : MonoBehaviour
     Player player;
     BulletPools bulletPool;
 
-    //回收到对象池的时间
+    //개체 풀로 재활용하는 데 걸리는 시간
     WaitForSeconds WaitSeconds = new WaitForSeconds(2f);
 
     void Awake()
@@ -30,39 +30,39 @@ public class Bullet : MonoBehaviour
 
     void Update()
     {
-        //模拟子弹自然下落
+        //총알의 자연스러운 낙하 시뮬레이션
         if (!isDestory) { transform.Translate(0, fallingDistance * Time.deltaTime, 0, Space.World); }
     }
 
     /// <summary>
-    /// 初始化,赋予伤害,击退力,射程
+    /// 초기화, 피해 부여, 밀쳐내기, 범위
     /// </summary>
     public void Initialization()
     {
         isDestory = false;
         damage = player.Damage;
         playerKnockback = player.Knockback;
-        //子弹一段时间后触发自动销毁
+        //총알은 일정 시간이 지나면 자동 파괴를 유발
         Invoke("AutoDestroy", player.Range * 0.03f);
     }
 
     /// <summary>
-    /// 自动销毁
+    /// 자동으로 파기
     /// </summary>
     void AutoDestroy()
     {
         if (isDestory) { return; }
-        //子弹快速下落一小段时间后销毁
+        //총알이 빠르게 떨어지며 짧은 시간 후에 파괴
         myRigidbody.gravityScale = 1.7f;
         Invoke("Destroy", 0.13f);
     }
 
     /// <summary>
-    /// 销毁
+    /// 파괴
     /// </summary>
     void Destroy()
     {
-        //关闭重力，停止移动，关闭碰撞体，播放消失动画,返回对象池
+        //중력을 끄고 이동을 멈추고 충돌체를 끄고 사라지는 애니메이션을 재생한 후 개체 풀로 돌아감
         isDestory = true;
         myRigidbody.gravityScale = 0;
         myRigidbody.velocity = Vector2.zero;
@@ -72,7 +72,7 @@ public class Bullet : MonoBehaviour
     }
 
     /// <summary>
-    /// 回收到对象池
+    /// 개체 풀로 재활용
     /// </summary>
     /// <returns></returns>
     IEnumerator GoBackToPool()
@@ -87,7 +87,7 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //接触后消除眼泪，不触发其他方法
+        //접촉 시 눈물을 제거하고 다른 방법을 실행하지 않음
         if (CommonUnit.TagCheck(collision.gameObject, player.TagThatDefaultByBullet) || CommonUnit.ComponentCheck(collision.gameObject, player.TypeThatDefaultByBullet))
         {
             Destroy();
@@ -97,7 +97,7 @@ public class Bullet : MonoBehaviour
         {
 
         }
-        //接触后消除眼泪并触发对象的受击方法
+        //접촉 시 눈물을 제거하고 개체의 적중 방식을 트리거
         else if (CommonUnit.ComponentCheck(collision.gameObject, player.TypeThatCanBeAttackedByBullet))
         {
             Vector3 force = Vector3.Normalize(collision.transform.position - transform.position) * playerKnockback;
@@ -108,7 +108,7 @@ public class Bullet : MonoBehaviour
                 Destroy();
             }
         }
-        //接触后消除眼泪并触发对象的销毁方法
+        //접촉 시 눈물을 제거하고 물체의 파괴 방법을 발동
         else if (CommonUnit.ComponentCheck(collision.gameObject, player.TypeThatCanBeDestroyedByBullet))
         {
             IDestructible destructible = collision.GetComponent<IDestructible>();
@@ -118,6 +118,6 @@ public class Bullet : MonoBehaviour
                 Destroy();
             }
         }
-        //其他的接触后无反应
+        //다른 사람과 접촉 후 반응 없음
     }
 }
