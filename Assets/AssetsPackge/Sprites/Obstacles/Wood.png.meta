@@ -1,33 +1,81 @@
 fileFormatVersion: 2
 guid: e00295513e48d4644b5a11b202afb8da
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: Fireplace_0
-    21300002: Fireplace_1
-    21300004: Fireplace_2
-    21300006: Fireplace_3
-    21300008: Fireplace_4
-    21300010: Fireplace_5
-    21300012: Fireplace_6
-    21300014: Fireplace_7
-    21300016: Fireplace_8
-    21300018: Fireplace_9
-    21300020: Fireplace_10
-    21300022: Fireplace_11
-    21300024: Wood_1_2
-    21300026: Wood_1_4
-    21300028: Wood_2_2
-    21300030: Wood_2_4
-    21300032: Wood_1_3
-    21300034: Wood_1_1
-    21300036: Wood_2_3
-    21300038: Wood_2_1
-    21300040: Wood_3_1
-    21300042: Wood_3_4
-    21300044: Wood_3_3
-    21300046: Wood_3_2
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: Fireplace_0
+  - first:
+      213: 21300002
+    second: Fireplace_1
+  - first:
+      213: 21300004
+    second: Fireplace_2
+  - first:
+      213: 21300006
+    second: Fireplace_3
+  - first:
+      213: 21300008
+    second: Fireplace_4
+  - first:
+      213: 21300010
+    second: Fireplace_5
+  - first:
+      213: 21300012
+    second: Fireplace_6
+  - first:
+      213: 21300014
+    second: Fireplace_7
+  - first:
+      213: 21300016
+    second: Fireplace_8
+  - first:
+      213: 21300018
+    second: Fireplace_9
+  - first:
+      213: 21300020
+    second: Fireplace_10
+  - first:
+      213: 21300022
+    second: Fireplace_11
+  - first:
+      213: 21300024
+    second: Wood_1_2
+  - first:
+      213: 21300026
+    second: Wood_1_4
+  - first:
+      213: 21300028
+    second: Wood_2_2
+  - first:
+      213: 21300030
+    second: Wood_2_4
+  - first:
+      213: 21300032
+    second: Wood_1_3
+  - first:
+      213: 21300034
+    second: Wood_1_1
+  - first:
+      213: 21300036
+    second: Wood_2_3
+  - first:
+      213: 21300038
+    second: Wood_2_1
+  - first:
+      213: 21300040
+    second: Wood_3_1
+  - first:
+      213: 21300042
+    second: Wood_3_4
+  - first:
+      213: 21300044
+    second: Wood_3_3
+  - first:
+      213: 21300046
+    second: Wood_3_2
   externalObjects: {}
-  serializedVersion: 7
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -44,9 +92,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -56,8 +107,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -78,11 +129,17 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
-  - serializedVersion: 2
+  - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -92,8 +149,10 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -103,7 +162,22 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -123,6 +197,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 7b8a2882c54e72149822def0edd6465b
+      internalID: 21300024
       vertices: []
       indices: 
       edges: []
@@ -143,6 +218,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 18b29b49232411c41b52ddc7042f1cf7
+      internalID: 21300026
       vertices: []
       indices: 
       edges: []
@@ -163,6 +239,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 23c7e7f10311bcb4981c53ca5ad33c08
+      internalID: 21300028
       vertices: []
       indices: 
       edges: []
@@ -183,6 +260,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 1ddc2903b7b465e4c9c4f3cd4a460992
+      internalID: 21300030
       vertices: []
       indices: 
       edges: []
@@ -203,6 +281,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: c9c16dfe5a2729c4a874118c33b16140
+      internalID: 21300032
       vertices: []
       indices: 
       edges: []
@@ -223,6 +302,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: c7b29def184bed447b4fc3ae27144947
+      internalID: 21300034
       vertices: []
       indices: 
       edges: []
@@ -243,6 +323,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: ae7423b081a9b0240add4bad69899607
+      internalID: 21300036
       vertices: []
       indices: 
       edges: []
@@ -263,6 +344,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 71dcffdba4a72a8459e4004f19b16fa1
+      internalID: 21300038
       vertices: []
       indices: 
       edges: []
@@ -283,6 +365,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 75416aaf69d429f44a1525bf9812ca74
+      internalID: 21300040
       vertices: []
       indices: 
       edges: []
@@ -303,6 +386,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 7f2e9a3c19567d649993b140b36d3bb8
+      internalID: 21300042
       vertices: []
       indices: 
       edges: []
@@ -323,6 +407,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 86cb9696aceeda04b9f3b153891c8533
+      internalID: 21300044
       vertices: []
       indices: 
       edges: []
@@ -343,6 +428,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: e43b13055cd7e144e8cfc0ee4177e613
+      internalID: 21300046
       vertices: []
       indices: 
       edges: []
@@ -351,13 +437,27 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 29a8970951a040749946af869d8b34ac
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
-  spritePackingTag: 
+    secondaryTextures: []
+    nameFileIdTable:
+      Wood_1_1: 21300034
+      Wood_1_2: 21300024
+      Wood_1_3: 21300032
+      Wood_1_4: 21300026
+      Wood_2_1: 21300038
+      Wood_2_2: 21300028
+      Wood_2_3: 21300036
+      Wood_2_4: 21300030
+      Wood_3_1: 21300040
+      Wood_3_2: 21300046
+      Wood_3_3: 21300044
+      Wood_3_4: 21300042
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

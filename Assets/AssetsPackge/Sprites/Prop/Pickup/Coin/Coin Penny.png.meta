@@ -1,32 +1,78 @@
 fileFormatVersion: 2
 guid: 3301d6996be297741bfb342929e823c8
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: Coin Penny_0
-    21300002: Coin Penny_1
-    21300004: Coin Penny_2
-    21300006: Coin Penny_3
-    21300008: Coin Penny_4
-    21300010: Coin Penny_5
-    21300012: Coin Penny_6
-    21300014: Coin Penny_7
-    21300016: Coin Penny_8
-    21300018: Coin Penny_9
-    21300020: Coin Penny_10
-    21300022: Coin Penny_11
-    21300024: Coin Penny_12
-    21300026: Coin Penny_13
-    21300028: Coin Penny_14
-    21300030: Coin Penny_15
-    21300032: Coin Penny_16
-    21300034: Coin Penny_17
-    21300036: Coin Penny_18
-    21300038: Coin Penny_19
-    21300040: Coin Penny_20
-    21300042: Coin Penny_21
-    21300044: Coin Penny_22
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: Coin Penny_0
+  - first:
+      213: 21300002
+    second: Coin Penny_1
+  - first:
+      213: 21300004
+    second: Coin Penny_2
+  - first:
+      213: 21300006
+    second: Coin Penny_3
+  - first:
+      213: 21300008
+    second: Coin Penny_4
+  - first:
+      213: 21300010
+    second: Coin Penny_5
+  - first:
+      213: 21300012
+    second: Coin Penny_6
+  - first:
+      213: 21300014
+    second: Coin Penny_7
+  - first:
+      213: 21300016
+    second: Coin Penny_8
+  - first:
+      213: 21300018
+    second: Coin Penny_9
+  - first:
+      213: 21300020
+    second: Coin Penny_10
+  - first:
+      213: 21300022
+    second: Coin Penny_11
+  - first:
+      213: 21300024
+    second: Coin Penny_12
+  - first:
+      213: 21300026
+    second: Coin Penny_13
+  - first:
+      213: 21300028
+    second: Coin Penny_14
+  - first:
+      213: 21300030
+    second: Coin Penny_15
+  - first:
+      213: 21300032
+    second: Coin Penny_16
+  - first:
+      213: 21300034
+    second: Coin Penny_17
+  - first:
+      213: 21300036
+    second: Coin Penny_18
+  - first:
+      213: 21300038
+    second: Coin Penny_19
+  - first:
+      213: 21300040
+    second: Coin Penny_20
+  - first:
+      213: 21300042
+    second: Coin Penny_21
+  - first:
+      213: 21300044
+    second: Coin Penny_22
   externalObjects: {}
-  serializedVersion: 7
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -43,9 +89,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -55,8 +104,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -77,11 +126,17 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
-  - serializedVersion: 2
+  - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -91,8 +146,10 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -102,7 +159,22 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -122,6 +194,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 30de4ab2c35b3c2409c40b0ac8a3184a
+      internalID: 21300000
       vertices: []
       indices: 
       edges: []
@@ -142,6 +215,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: c5248d1a0f0d6e24ba4e720b1ba545eb
+      internalID: 21300002
       vertices: []
       indices: 
       edges: []
@@ -162,6 +236,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: d5316713f9a7db84bbf6495ff6eb4e9d
+      internalID: 21300004
       vertices: []
       indices: 
       edges: []
@@ -182,6 +257,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 0ffa3e16dbc7a7943b0d3ed6fc74d396
+      internalID: 21300006
       vertices: []
       indices: 
       edges: []
@@ -202,6 +278,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: d5b3c661dc1f5994f8eaf9628d49b067
+      internalID: 21300008
       vertices: []
       indices: 
       edges: []
@@ -222,6 +299,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 209a940577cd71b478e116e0453fe19e
+      internalID: 21300010
       vertices: []
       indices: 
       edges: []
@@ -242,6 +320,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 2e7086245a8a61846bdcb5fbf2846543
+      internalID: 21300012
       vertices: []
       indices: 
       edges: []
@@ -262,6 +341,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 53be18720138859418c4ba90e253032a
+      internalID: 21300014
       vertices: []
       indices: 
       edges: []
@@ -282,6 +362,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 1dfb547172d02a4498d85a1b2fb2b0e4
+      internalID: 21300016
       vertices: []
       indices: 
       edges: []
@@ -302,6 +383,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: e4d0c9d1184eb154a9cfb1ec4400e5cf
+      internalID: 21300018
       vertices: []
       indices: 
       edges: []
@@ -322,6 +404,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 62ef2669cba79fb4d80f726f9fda9ff2
+      internalID: 21300020
       vertices: []
       indices: 
       edges: []
@@ -342,6 +425,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 6ad9fe2be67d76845bfa0d14b99aec18
+      internalID: 21300022
       vertices: []
       indices: 
       edges: []
@@ -362,6 +446,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: ccaede7c3423dd042a246a297bbf4eaa
+      internalID: 21300024
       vertices: []
       indices: 
       edges: []
@@ -382,6 +467,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 7eb4b47aa005c6645ae85c2a016b567f
+      internalID: 21300026
       vertices: []
       indices: 
       edges: []
@@ -402,6 +488,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: cb1cabc7fed283746b2871fe7201fc2e
+      internalID: 21300028
       vertices: []
       indices: 
       edges: []
@@ -422,6 +509,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: a44fea0e37962ae428953bbab9087bb2
+      internalID: 21300030
       vertices: []
       indices: 
       edges: []
@@ -442,6 +530,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: e4fd46faf2ca5594db747893b9e10477
+      internalID: 21300032
       vertices: []
       indices: 
       edges: []
@@ -462,6 +551,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: d9e45645acb7b904890e1402787b5a00
+      internalID: 21300034
       vertices: []
       indices: 
       edges: []
@@ -482,6 +572,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: c721fadf211096340990708e8c69a632
+      internalID: 21300036
       vertices: []
       indices: 
       edges: []
@@ -502,6 +593,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 799b3785db9fc9b4fbdd952c5010760e
+      internalID: 21300038
       vertices: []
       indices: 
       edges: []
@@ -522,6 +614,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 116fa4f162051504981da147eac9d9d9
+      internalID: 21300040
       vertices: []
       indices: 
       edges: []
@@ -542,6 +635,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 961fae43800058b4fa1fab6d5cee9745
+      internalID: 21300042
       vertices: []
       indices: 
       edges: []
@@ -562,6 +656,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 89873e008b861554f84b3de6720041a3
+      internalID: 21300044
       vertices: []
       indices: 
       edges: []
@@ -570,13 +665,38 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 9e42ea66f9e606b4c8dcc982a0ca46a6
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
-  spritePackingTag: 
+    secondaryTextures: []
+    nameFileIdTable:
+      Coin Penny_0: 21300000
+      Coin Penny_1: 21300002
+      Coin Penny_10: 21300020
+      Coin Penny_11: 21300022
+      Coin Penny_12: 21300024
+      Coin Penny_13: 21300026
+      Coin Penny_14: 21300028
+      Coin Penny_15: 21300030
+      Coin Penny_16: 21300032
+      Coin Penny_17: 21300034
+      Coin Penny_18: 21300036
+      Coin Penny_19: 21300038
+      Coin Penny_2: 21300004
+      Coin Penny_20: 21300040
+      Coin Penny_21: 21300042
+      Coin Penny_22: 21300044
+      Coin Penny_3: 21300006
+      Coin Penny_4: 21300008
+      Coin Penny_5: 21300010
+      Coin Penny_6: 21300012
+      Coin Penny_7: 21300014
+      Coin Penny_8: 21300016
+      Coin Penny_9: 21300018
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
