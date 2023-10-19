@@ -60,7 +60,6 @@ public class Player : MonoBehaviour, IAttackable
             {
                 temp = (int)(16 - 6 * Tears);
             }
-
             temp = temp > 5 ? temp : 5;
             temp = temp * TearsDelayMultiple + TearsDelayAdded;
             return temp > 1 ? temp : 1;
